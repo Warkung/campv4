@@ -1,6 +1,8 @@
 function page() {
   return (
-    <div>page</div>
-  )
+    <div className="container text-center">
+      <h1>hello world</h1>
+    </div>
+  );
 }
-export default page
+export default page;
