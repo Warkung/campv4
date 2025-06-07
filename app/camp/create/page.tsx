@@ -1,5 +1,5 @@
 // "use client";
-import {createProfileAction} from "@/action/action";
+import {createLandmarkAction} from "@/action/action";
 import ButtonForm from "@/components/form/ButtonForm";
 import FormContainer from "@/components/form/FormContainer";
 import InputForm from "@/components/form/InputForm";
@@ -17,23 +17,18 @@ async function CreatePage() {
   // if (!isClient) {
   //   return null; // Or a loading state
   // }
-  const user = await currentUser();
-  if (user?.privateMetadata.hasProfile) redirect("/");
-
   return (
     <div className="container">
       <div className="text-center mb-10 text-4xl ">
-        <h1>New User</h1>
+        <h1>Create Landmark</h1>
       </div>
-      <FormContainer action={createProfileAction}>
+      <FormContainer action={createLandmarkAction}>
         <div className="border p-10 max-w-md m-auto rounded-3xl ">
           <div className="mb-10 flex flex-col gap-5">
-            <InputForm label={"First name"} name={"firstName"} type={"text"} />
-            <InputForm label={"Last name"} name={"lastName"} type={"text"} />
-            <InputForm label={"Username"} name={"username"} type={"text"} />
+            <InputForm label={"Landmark name"} name={"name"} type={"text"} />
           </div>
           <ButtonForm
-            title="Create Profile"
+            title="Create landmark"
             size="lg"
             type="submit"
             variant="default"

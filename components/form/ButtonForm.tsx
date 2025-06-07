@@ -9,7 +9,14 @@ function ButtonForm({ size, variant, type, title }: ButtonProps) {
   return (
     <div>
       <Button disabled={pending} type={type} size={size} variant={variant}>
-        {pending ? <Loader2 className="animate-spin" /> : title}
+        {pending ? (
+          <>
+            <Loader2 className="animate-spin" />
+            <span className="ml-2">Loading  ...</span>
+          </>
+        ) : (
+          title
+        )}
       </Button>
     </div>
   );
