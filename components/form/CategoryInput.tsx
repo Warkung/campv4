@@ -19,7 +19,7 @@ export default function CategoryInput({
   defaultValue,
 }: CategoryInputProps) {
   return (
-    <>
+    <div>
       <Label htmlFor={name} className="mb-1">
         {name}
       </Label>
@@ -41,6 +41,6 @@ export default function CategoryInput({
           ))}
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

@@ -6,6 +6,7 @@ import FormContainer from "@/components/form/FormContainer";
 import InputForm from "@/components/form/InputForm";
 import ProvinceInput from "@/components/form/ProvinceInput";
 import TextAreaInputForm from "@/components/form/TextAreaInputForm";
+import MapLandmark from "@/components/map/MapLandmark";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -26,28 +27,19 @@ async function CreatePage() {
         <h1>Create Landmark</h1>
       </div>
       <FormContainer action={createLandmarkAction}>
-        <div className="border p-10 max-w-md m-auto rounded-3xl ">
-          <div className="mb-5 flex flex-col gap-5">
-            <InputForm label={"Landmark name"} name={"name"} type={"text"} />
-          </div>
-          <div className="mb-5">
-            <CategoryInput name={"Category"} />
-          </div>
-          <div className="mb-5">
-            <TextAreaInputForm
-              name={"Description"}
-              labelText={"Description"}
-              rows={5}
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <InputForm label={"price"} name={"price"} type={"number"} />
-          </div>
-          <div className="mb-5">
-            <ProvinceInput name={"province"} />
-          </div>
-          <div className="">
+        <div className="border p-4 sm:p-6 lg:p-10 max-w-4xl mx-auto rounded-3xl space-y-6">
+          <InputForm label={"Landmark name"} name={"name"} type={"text"} />
+          <CategoryInput name={"Category"} />
+          <TextAreaInputForm
+            name={"Description"}
+            labelText={"Description"}
+            rows={5}
+            required={true}
+          />
+          <InputForm label={"price"} name={"price"} type={"number"} />
+          <ProvinceInput name={"province"} />
+          <MapLandmark />
+          <div className="mt-6">
             <ButtonForm
               title="Create landmark"
               size="lg"

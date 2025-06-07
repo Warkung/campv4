@@ -19,7 +19,7 @@ export default function ProvinceInput({
   defaultValue,
 }: ProvinceInputProps) {
   return (
-    <>
+    <div>
       <Label htmlFor={name} className="mb-1">
         {name}
       </Label>
@@ -37,6 +37,6 @@ export default function ProvinceInput({
           ))}
         </SelectContent>
       </Select>
-    </>
+    </div>
   );
 }

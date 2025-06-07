@@ -444,3 +444,21 @@ https://supabase.com/docs/guides/storage/uploads/standard-uploads
 https://clerk.com/docs/references/nextjs/auth
 ```
 ## สู้ๆ ครับทุกๆ คน
+
+..........................................
+# .env
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_cmVhbC1lbXUtODguY2xlcmsuYWNjb3VudHMuZGV2JA
+CLERK_SECRET_KEY=sk_test_lJ8CkfZUjrVNcmzoiuFO22ZepyCAgkyjnR5u9KqDUZ
+
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL="/profile/create"
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL="/profile/create"
+
+PASSWORD=Amuro@Rx78-2
+
+
+# Connect to Supabase via connection pooling
+DATABASE_URL="postgresql://postgres.stbjednzxgdtnixthvyt:Amuro@Rx78-2@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
+
+# Direct connection to the database. Used for migrations
+DIRECT_URL="postgresql://postgres.stbjednzxgdtnixthvyt:Amuro@Rx78-2@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
