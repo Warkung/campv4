@@ -23,7 +23,7 @@ import { links } from "@/utils/links";
 
 function Dropdown() {
   const handleLogout = () => {
-    toast("Logout Successfully");
+    toast("Bye Bye👋👋👋 ");
   };
 
   return (

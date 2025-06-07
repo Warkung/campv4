@@ -10,17 +10,6 @@ const renderError = (error: unknown): { message: string } => {
   return { message: error instanceof Error ? error.message : "Unknown Error" };
 };
 
-const getAuthUser = async () => {
-  const user = await currentUser();
-  if (!user) {
-    throw new Error("Unauthorized");
-  }
-  if (!user.privateMetadata.hasProfile) {
-    redirect("/profile/create");
-  }
-  return user;
-};
-
 export const createProfileAction = async (
   prevState: any,
   formData: FormData
