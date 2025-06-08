@@ -10,18 +10,20 @@ import {
 import { provinces } from "@/utils/provinces";
 
 interface ProvinceInputProps {
+  label: string;
   name: string;
   defaultValue?: string;
 }
 
 export default function ProvinceInput({
+  label,
   name,
   defaultValue,
 }: ProvinceInputProps) {
   return (
     <div>
-      <Label htmlFor={name} className="mb-1">
-        {name}
+      <Label htmlFor={name} className="mb-1 capitalize text-md font-semibold">
+        {label}
       </Label>
       <Select name={name} required>
         <SelectTrigger className="w-full">

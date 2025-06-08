@@ -49,7 +49,6 @@ export default function MapLandmark({
   const defaultLocation: LatLng = [14, 100];
 
   const [position, setPosition] = useState<LatLng | null>(null);
-  console.log(position);
   return (
     <>
       <input name="lat" value={position?.[0]} hidden />

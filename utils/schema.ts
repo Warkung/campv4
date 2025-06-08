@@ -15,4 +15,14 @@ const validateWithZod = <T>(Schema: ZodSchema<T>, data: unknown): T => {
   return result.data;
 };
 
-export { ProfileSchema, validateWithZod };
+const validateImage = () => {
+  const maxFileSize = 1024 * 1024; // 1MB
+  return z.instanceof(File).refine((file) => {
+    return file.size <= maxFileSize;
+  }, "Image size must be less than 1MB");
+};
+const imageSchema = z.object({
+  image: validateImage(),
+});
+
+export { ProfileSchema, imageSchema, validateWithZod };

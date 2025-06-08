@@ -8,7 +8,7 @@ function InputForm({ label, name, type, required }: InputProps) {
       <Label htmlFor={name} className="text-md font-semibold capitalize">
         {label}
       </Label>
-      <Input name={name} id={name} type={type} placeholder={label} />
+      <Input name={name} id={name} type={type} placeholder={label} required={required} />
     </div>
   );
 }
