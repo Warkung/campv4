@@ -20,13 +20,10 @@ export default function CategoryInput({
 }: CategoryInputProps) {
   return (
     <div>
-      <Label htmlFor={name} className="mb-1">
+      <Label htmlFor={name} className="mb-1 capitalize">
         {name}
       </Label>
-      <Select
-        name={name}      
-        required
-      >
+      <Select name={name}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Select a category" />
         </SelectTrigger>

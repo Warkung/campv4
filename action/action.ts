@@ -1,6 +1,11 @@
 "use server";
 
-import { imageSchema, ProfileSchema, validateWithZod } from "@/utils/schema";
+import {
+  imageSchema,
+  landmarkSchema,
+  ProfileSchema,
+  validateWithZod,
+} from "@/utils/schema";
 import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import db from "@/utils/db";
 import { redirect } from "next/navigation";
@@ -44,7 +49,6 @@ export const createProfileAction = async (
   } catch (error) {
     return renderError(error);
   }
-
   redirect("/");
 };
 
@@ -57,11 +61,15 @@ export const createLandmarkAction = async (
     const rawData = Object.fromEntries(formData);
     const file = formData.get("image") as File;
 
-    // const validateField = validateWithZod(ProfileSchema, rawData);
+    console.log(rawData);
+
+    const validateImage = validateWithZod(imageSchema, { image: file });
+    const validateField = validateWithZod(landmarkSchema, rawData);
 
     //#1 validate
-    const validateField = validateWithZod(imageSchema, { image: file });
     console.log("Validate", validateField);
+    console.log("Image", validateImage);
+
     //#2 upload image
     //#3 insert to DB
 

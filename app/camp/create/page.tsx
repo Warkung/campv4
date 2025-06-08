@@ -29,14 +29,14 @@ async function CreatePage() {
       </div>
       <FormContainer action={createLandmarkAction}>
         <div className="border p-4 sm:p-6 lg:p-10 max-w-4xl mx-auto rounded-3xl space-y-6">
-          <InputForm label={"Landmark name"} name={"name"} type={"text"} required />
-          <CategoryInput name={"Category"} />
+          <InputForm label={"Landmark name"} name={"name"} type={"text"} />
+          <CategoryInput name={"category"} />
           <TextAreaInputForm
-            name={"Description"}
+            name={"description"}
             labelText={"Description"}
             rows={5}
           />
-          <InputForm label={"price"} name={"price"} type={"number"} required />
+          <InputForm label={"price"} name={"price"} type={"number"} />
           <ProvinceInput name={"province"} label="Province" />
           <ImageInput />
           <MapLandmark />

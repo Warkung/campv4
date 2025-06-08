@@ -25,7 +25,7 @@ export default function ProvinceInput({
       <Label htmlFor={name} className="mb-1 capitalize text-md font-semibold">
         {label}
       </Label>
-      <Select name={name} required>
+      <Select name={name}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Select a Province" />
         </SelectTrigger>
