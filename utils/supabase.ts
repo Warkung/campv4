@@ -10,13 +10,16 @@ const supabase = createClient(url, key);
 // Upload file using standard upload
 async function uploadFile(image: File) {
   const timeStamp = Date.now();
-  const fileName = `Warkung-${timeStamp}_${image.name}`;
+  const fileName = `landmark_${timeStamp}_${image.name}`;
 
   const { data, error } = await supabase.storage
     .from(bucket)
     .upload(fileName, image);
-  if (!data) throw new Error("Upload failed");
-  return data.path;
+  if (!data) throw new Error(error?.message ?? "Unknown error");
+
+  const publicUrl = supabase.storage.from("bucket").getPublicUrl(fileName)
+    .data.publicUrl;
+  return publicUrl;
 }
 
 export { uploadFile };
