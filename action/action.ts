@@ -71,14 +71,18 @@ export const createLandmarkAction = async (
 
     //#2 upload image
     const uploadedImg = await uploadFile(validateImage.image);
-    console.log(uploadedImg);
 
     //#3 insert to DB
-
-    return { message: "Create landmark success" };
+    await db.landmark.create({
+      data: {
+        ...validateField,
+        image: uploadedImg,
+        profileId: user.id,
+      },
+    });
+    // return { message: "Create landmark success" };
   } catch (error) {
     return renderError(error);
   }
-
-  // redirect("/");
+  redirect("/");
 };
