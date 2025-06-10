@@ -462,3 +462,6 @@ DATABASE_URL="postgresql://postgres.stbjednzxgdtnixthvyt:Amuro@Rx78-2@aws-0-ap-s
 
 # Direct connection to the database. Used for migrations
 DIRECT_URL="postgresql://postgres.stbjednzxgdtnixthvyt:Amuro@Rx78-2@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
+
+NEXT_PUBLIC_SUPABASE_URL='https://stbjednzxgdtnixthvyt.supabase.co'
+NEXT_PUBLIC_SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0YmplZG56eGdkdG5peHRodnl0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0OTIxNzc2OSwiZXhwIjoyMDY0NzkzNzY5fQ.uu1PlyXjpy2Iguq9uO51HmQwAkn6ChXxFsjM0zYg3Bo'

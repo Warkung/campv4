@@ -86,3 +86,15 @@ export const createLandmarkAction = async (
   }
   redirect("/");
 };
+
+export const fetchLandmarks = async () => {
+  try {
+    return await db.landmark.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+  } catch (error) {
+    return renderError(error);
+  }
+};

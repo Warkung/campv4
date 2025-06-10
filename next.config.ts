@@ -7,7 +7,15 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "5mb",
     },
   },
-  reactStrictMode: false,  
+  reactStrictMode: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "https://stbjednzxgdtnixthvyt.supabase.co/storage/v1/object/public/landmark",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
