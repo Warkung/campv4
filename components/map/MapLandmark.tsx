@@ -49,10 +49,12 @@ export default function MapLandmark({
   const defaultLocation: LatLng = [14, 100];
 
   const [position, setPosition] = useState<LatLng | null>(null);
+  console.log("position", position);
+
   return (
     <>
-      <input name="lat" value={position?.[0]} hidden />
-      <input name="lng" value={position?.[1]} hidden />
+      <input name="lat" value={position?.[0]} />
+      <input name="lng" value={position?.[1]} />
       <MapContainer
         center={location || defaultLocation}
         zoom={7}
@@ -76,7 +78,7 @@ export default function MapLandmark({
           </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="Satellite">
             <TileLayer
-              attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+              attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             />
           </LayersControl.BaseLayer>

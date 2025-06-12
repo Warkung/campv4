@@ -34,8 +34,20 @@ const landmarkSchema = z.object({
     .max(200, { message: "Description must be less than 200 characters" }),
   price: z.coerce.number().int().min(0, { message: "Price is required" }),
   province: z.string().min(1, { message: "Province is required" }),
-  lat: z.coerce.number(),
-  lng: z.coerce.number(),
+  lat: z
+    .string()
+    .regex(
+      /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/,
+      { message: "Invalid latitude" }
+    )
+    .optional(),
+  lng: z
+    .string()
+    .regex(
+      /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/,
+      { message: "Invalid longitude" }
+    )
+    .optional(),
 });
 
 export { ProfileSchema, imageSchema, landmarkSchema, validateWithZod };

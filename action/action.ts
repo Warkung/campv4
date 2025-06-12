@@ -80,6 +80,7 @@ export const createLandmarkAction = async (
         profileId: user.id,
       },
     });
+
     // return { message: "Create landmark success" };
   } catch (error) {
     return renderError(error);
