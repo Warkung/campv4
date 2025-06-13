@@ -90,11 +90,12 @@ export const createLandmarkAction = async (
 
 export const fetchLandmarks = async () => {
   try {
-    return await db.landmark.findMany({
+    const landmarks = await db.landmark.findMany({
       orderBy: {
         createdAt: "desc",
       },
     });
+    return landmarks;
   } catch (error) {
     return renderError(error);
   }
