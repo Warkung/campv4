@@ -9,8 +9,12 @@ export default function LandmarkCard({ landmark }: { landmark: Landmark }) {
   return (
     <article className="group relative">
       <div className="relative h-[300px]">
-        <h1>{name}</h1>
-        <img src={image} className="w-100 h-200 object-cover" alt={name} />
+        <Image
+          src={image}
+          alt={name}
+          width={200}
+          height={200}
+        />
       </div>
     </article>
   );

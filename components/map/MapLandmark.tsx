@@ -53,8 +53,8 @@ export default function MapLandmark({
 
   return (
     <>
-      <input name="lat" value={position?.[0]} />
-      <input name="lng" value={position?.[1]} />
+      <input name="lat" value={position?.[0]} hidden required />
+      <input name="lng" value={position?.[1]} hidden required />
       <MapContainer
         center={location || defaultLocation}
         zoom={7}

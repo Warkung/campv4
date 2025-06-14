@@ -31,22 +31,20 @@ const landmarkSchema = z.object({
   description: z
     .string()
     .min(1, { message: "Description is required" })
-    .max(200, { message: "Description must be less than 200 characters" }),
+    .max(200, { message: "Description must be less than 200 characters" }), // Ensure this line has a comma
   price: z.coerce.number().int().min(0, { message: "Price is required" }),
   province: z.string().min(1, { message: "Province is required" }),
   lat: z
-    .string()
-    .regex(
-      /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/,
-      { message: "Invalid latitude" }
-    )
+    .coerce
+    .number({ invalid_type_error: "Latitude must be a number or a numeric string." })
+    .min(-90, { message: "Latitude must be at least -90." })
+    .max(90, { message: "Latitude must be at most 90." })
     .optional(),
   lng: z
-    .string()
-    .regex(
-      /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/,
-      { message: "Invalid longitude" }
-    )
+    .coerce
+    .number({ invalid_type_error: "Longitude must be a number or a numeric string." })
+    .min(-180, { message: "Longitude must be at least -180." })
+    .max(180, { message: "Longitude must be at most 180." })
     .optional(),
 });
 
