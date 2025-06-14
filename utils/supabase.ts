@@ -14,7 +14,9 @@ async function uploadFile(image: File) {
 
   const { data, error } = await supabase.storage
     .from(bucket)
-    .upload(fileName, image);
+    .upload(fileName, image, {
+      cacheControl: "3600",
+    });
   if (!data) throw new Error(error?.message ?? "Unknown error");
 
   const publicUrl = supabase.storage.from(bucket).getPublicUrl(fileName)

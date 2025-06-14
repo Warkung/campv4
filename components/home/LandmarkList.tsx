@@ -1,16 +1,16 @@
-import { Landmark } from "@prisma/client";
 import LandmarkCard from "../card/LandmarkCard";
+import { LandmarkCardProps } from "@/utils/types";
 
-type LandmarksListProps = {
-  landmarks: Landmark[];
-};
-
-export default function LandmarkList({ landmarks }: LandmarksListProps) {
+export default function LandmarkList({
+  landmarks,
+}: {
+  landmarks: LandmarkCardProps[];
+}) {
   return (
-    <div>
+    <section className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
       {landmarks.map((landmark) => {
         return <LandmarkCard key={landmark.id} landmark={landmark} />;
       })}
-    </div>
+    </section>
   );
 }

@@ -24,3 +24,15 @@ export interface InputProps {
   type: string;
   required?: boolean;
 }
+
+export type LandmarkCardProps = {
+  id: string; // Assuming 'id' is a string, adjust if it's a number
+  name: string;
+  image: string; // URL or path to the image
+  category: string;
+  description: string;
+  price: number;
+  province: string;
+  lat: number;
+  lng: number;
+};
