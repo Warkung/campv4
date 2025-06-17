@@ -1,6 +1,7 @@
 import { LandmarkCardProps } from "@/utils/types";
 import Image from "next/image";
 import LandmarkRating from "./LandmarkRating";
+import FavoriteToggleButton from "./FavoriteToggleButton";
 
 export default function LandmarkCard({
   landmark,
@@ -37,6 +38,9 @@ export default function LandmarkCard({
       <div className="flex justify-between items-center text-sm font-semibold">
         <span>THB {price}</span>
         <p className=" ">{province}</p>
+      </div>
+      <div className=" absolute top-2 right-2">
+        <FavoriteToggleButton landmarkId={id} />
       </div>
     </article>
   );
