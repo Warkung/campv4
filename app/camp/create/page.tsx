@@ -1,6 +1,6 @@
 // "use client";
 import { createLandmarkAction } from "@/action/action";
-import ButtonForm from "@/components/form/ButtonForm";
+import {ButtonForm} from "@/components/form/ButtonForm";
 import CategoryInput from "@/components/form/CategoryInput";
 import FormContainer from "@/components/form/FormContainer";
 import ImageInput from "@/components/form/ImageInput";
@@ -8,20 +8,9 @@ import InputForm from "@/components/form/InputForm";
 import ProvinceInput from "@/components/form/ProvinceInput";
 import TextAreaInputForm from "@/components/form/TextAreaInputForm";
 import MapLandmark from "@/components/map/MapLandmark";
-import { currentUser } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import { useState, useEffect } from "react";
 
 async function CreatePage() {
-  // const [isClient, setIsClient] = useState(false);
 
-  // useEffect(() => {
-  //   setIsClient(true);
-  // }, []);
-
-  // if (!isClient) {
-  //   return null; // Or a loading state
-  // }
   return (
     <div className="container">
       <div className="text-center mb-10 text-4xl ">

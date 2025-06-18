@@ -1,6 +1,6 @@
 // "use client";
 import {createProfileAction} from "@/action/action";
-import ButtonForm from "@/components/form/ButtonForm";
+import {ButtonForm} from "@/components/form/ButtonForm";
 import FormContainer from "@/components/form/FormContainer";
 import InputForm from "@/components/form/InputForm";
 import { currentUser } from "@clerk/nextjs/server";
