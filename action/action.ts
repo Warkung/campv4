@@ -96,3 +96,29 @@ export const fetchLandmarks = async () => {
   });
   return landmarks;
 };
+
+export const fetchFavoriteId = async ({
+  landmarkId,
+}: {
+  landmarkId: string;
+}) => {
+  const user = await getAuthUser();
+  const favorite = await db.favorite.findFirst({
+    where: {
+      landmarkId,
+      profileId: user.id,
+    },
+    select: {
+      id: true,
+    },
+  });
+  return favorite?.id || null;
+};
+
+export const toggleFavoriteAction = async ({
+  landmarkId,
+}: {
+  landmarkId: string;
+}) => {
+  return { message: "Add favorite success" };
+};
