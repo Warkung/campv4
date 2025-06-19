@@ -26,9 +26,32 @@ export function ButtonForm({ size, variant, type, title }: ButtonProps) {
 export const SignInCardButton = () => {
   return (
     <SignInButton mode="modal">
-      <Button size={"icon"} variant={"default"}>
-        <Heart />
+      <Button size={"icon"} variant={"default"} className="rounded-xl">
+        <Heart className="w-6 h-6" fill="none" />
       </Button>
     </SignInButton>
+  );
+};
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+  const { pending } = useFormStatus();
+  return (
+    <Button size={"icon"} variant={"default"} className="rounded-xl">
+      {pending ? (
+        <Loader2 className="animate-spin w-6 h-6 text-muted-foreground" />
+      ) : (
+        <Heart
+          fill={isFavorite ? "hsl(var(--destructive))" : "none"}
+          className={`
+            w-6 h-6 transition-all duration-150 ease-in-out
+            ${
+              isFavorite
+                ? "hover:cursor-pointer hover:scale-110 fill-gray-800 "
+                : "group-hover:scale-110 "
+            }
+          `}
+        />
+      )}
+    </Button>
   );
 };

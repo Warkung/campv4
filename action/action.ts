@@ -10,6 +10,8 @@ import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import db from "@/utils/db";
 import { redirect } from "next/navigation";
 import { uploadFile } from "@/utils/supabase";
+import { toast } from "sonner";
+import { revalidatePath } from "next/cache";
 
 const getAuthUser = async () => {
   const user = await currentUser();
@@ -64,7 +66,7 @@ export const createLandmarkAction = async (
 
     //#1 validate
     const validateImage = validateWithZod(imageSchema, { image: file });
-    const validateField = validateWithZod(landmarkSchema, rawData);
+    const validateField: any = validateWithZod(landmarkSchema, rawData);
 
     // console.log("Validate", validateField);
     // console.log("Image", validateImage);
@@ -115,10 +117,34 @@ export const fetchFavoriteId = async ({
   return favorite?.id || null;
 };
 
-export const toggleFavoriteAction = async ({
-  landmarkId,
-}: {
+export const toggleFavoriteAction = async (prevState: {
+  favoriteId: string | null;
   landmarkId: string;
+  pathname: string;
 }) => {
-  return { message: "Add favorite success" };
+  try {
+    const { favoriteId, landmarkId, pathname } = prevState;
+    const user = await getAuthUser();
+
+    //Delete
+    if (favoriteId) {
+      await db.favorite.delete({
+        where: {
+          id: favoriteId,
+        },
+      });
+    } else {
+      // Cleate
+      await db.favorite.create({
+        data: {
+          landmarkId,
+          profileId: user.id,
+        },
+      });
+    }
+    revalidatePath(pathname);
+    return { message: favoriteId ? "Unfavorite" : "Favorite" };
+  } catch (error) {
+    return renderError(error);
+  }
 };
