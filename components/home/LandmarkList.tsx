@@ -1,5 +1,6 @@
 import LandmarkCard from "../card/LandmarkCard";
 import { LandmarkCardProps } from "@/utils/types";
+import LoadingCard from "../card/LoadingCard";
 
 export default function LandmarkList({
   landmarks,
