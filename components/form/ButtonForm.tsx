@@ -46,7 +46,7 @@ export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
             w-6 h-6 transition-all duration-150 ease-in-out
             ${
               isFavorite
-                ? "hover:cursor-pointer hover:scale-110 fill-gray-800 "
+                ? "hover:scale-110 fill-pink-600 "
                 : "group-hover:scale-110 "
             }
           `}

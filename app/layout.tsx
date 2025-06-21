@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar/Navbar";
 import Provider from "./Provider";
 import { ClerkProvider } from "@clerk/nextjs";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +33,7 @@ export default function RootLayout({
         >
           <Provider>
             <Navbar />
-            {children}
+            <div className="container">{children}</div>
           </Provider>
         </body>
       </html>

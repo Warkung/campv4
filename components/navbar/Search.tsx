@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 function Search() {
   return (
     <>
-      <Input type="search" placeholder="Search" className="max-w-lg" />
+      <Input type="search" placeholder="Search" className="w-full md:w-lg" />
     </>
   );
 }
