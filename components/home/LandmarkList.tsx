@@ -1,6 +1,7 @@
 import LandmarkCard from "../card/LandmarkCard";
 import { LandmarkCardProps } from "@/utils/types";
 import LoadingCard from "../card/LoadingCard";
+import { Suspense } from "react";
 
 export default function LandmarkList({
   landmarks,
@@ -10,7 +11,11 @@ export default function LandmarkList({
   return (
     <section className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
       {landmarks.map((landmark) => {
-        return <LandmarkCard key={landmark.id} landmark={landmark} />;
+        return (
+          <Suspense key={landmark.id} fallback={<LoadingCard />}>
+            <LandmarkCard key={landmark.id} landmark={landmark} />
+          </Suspense>
+        );
       })}
     </section>
   );

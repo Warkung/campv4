@@ -9,9 +9,7 @@ export default async function LandmarkContainer() {
 
   return (
     <div>
-      <Suspense fallback={<LoadingCard />}>
         <LandmarkList landmarks={landmarks} />
-      </Suspense>
     </div>
   );
 }
