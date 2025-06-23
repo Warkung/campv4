@@ -40,8 +40,8 @@ function Hero({ landmarks }: { landmarks: LandmarkCardProps[] }) {
                 className="w-full h-36 object-cover brightness-50 sm:h-96"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-0 p-4 text-white">
-                <h3 className="text-xl font-bold">{landmark.name}</h3>
+              <div className="absolute bottom-5 left-3 p-4 text-white">
+                <h3 className="text-3xl font-bold">{landmark.name}</h3>
                 <p className="text-sm">{landmark.province}</p>
               </div>
             </div>

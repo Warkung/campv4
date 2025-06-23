@@ -18,14 +18,13 @@ export default function LandmarkCard({
           src={image}
           alt={name}
           // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          // fill
           sizes="300"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           className="rounded-lg group-hover:scale-105 transition-all duration-300 max-h-[200px]"
           priority
           placeholder="blur"
-          blurDataURL={image}
+          blurDataURL={image}          
         />
       </div>
       <div className="mt-4 flex justify-between">
