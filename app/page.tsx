@@ -1,9 +1,10 @@
 import LandmarkContainer from "@/components/home/LandmarkContainer";
 
-function page() {
+async function page({ searchParams }: { searchParams: { search?: string } }) {
+  const { search } = await searchParams;
   return (
     <div>
-      <LandmarkContainer />
+      <LandmarkContainer search={search} />
     </div>
   );
 }

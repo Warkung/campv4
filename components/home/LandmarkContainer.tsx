@@ -3,8 +3,8 @@ import LandmarkList from "./LandmarkList";
 import { LandmarkCardProps } from "@/utils/types";
 import Hero from "../hero/Hero";
 
-export default async function LandmarkContainer() {
-  const landmarks: LandmarkCardProps[] = await fetchLandmarks();
+export default async function LandmarkContainer({ search }: { search?: string }) {
+  const landmarks: LandmarkCardProps[] = await fetchLandmarks({ search });
 
   return (
     <div>
