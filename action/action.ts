@@ -197,3 +197,12 @@ export const fetchFevorite = async () => {
   const favoriteLandmarks = favorites.map((favorite) => favorite.landmark);
   return favoriteLandmarks;
 };
+
+export const fetchLandmarkDetail = async ({ id }: { id: string }) => {
+  const landmark = await db.landmark.findUnique({
+    where: {
+      id,
+    },
+  });
+  return landmark;
+};

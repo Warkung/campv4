@@ -2,6 +2,7 @@ import { LandmarkCardProps } from "@/utils/types";
 import Image from "next/image";
 import LandmarkRating from "./LandmarkRating";
 import FavoriteToggleButton from "./FavoriteToggleButton";
+import Link from "next/link";
 
 export default function LandmarkCard({
   landmark,
@@ -14,6 +15,7 @@ export default function LandmarkCard({
   return (
     <article className="group relative items-center">
       <div className="relative h-[200px] ">
+      <Link href={`/landmark/${id}`}  >
         <Image
           src={image}
           alt={name}
@@ -26,6 +28,7 @@ export default function LandmarkCard({
           placeholder="blur"
           blurDataURL={image}          
         />
+        </Link>
       </div>
       <div className="mt-4 flex justify-between">
         <h3 className="text-lg font-semibold">{name.substring(0, 30)}</h3>
@@ -41,6 +44,7 @@ export default function LandmarkCard({
       <div className=" absolute top-2 right-2">
         <FavoriteToggleButton landmarkId={id} />
       </div>
+      
     </article>
   );
 }
