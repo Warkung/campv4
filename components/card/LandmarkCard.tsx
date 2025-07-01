@@ -14,7 +14,7 @@ export default function LandmarkCard({
 
   return (
     <article className="group relative items-center">
-      <div className="relative h-[200px] ">
+      <div className="relative h-[150px] ">
       <Link href={`/landmark/${id}`}  >
         <Image
           src={image}
@@ -23,7 +23,7 @@ export default function LandmarkCard({
           sizes="300"
           fill
           style={{ objectFit: "cover" }}
-          className="rounded-lg group-hover:scale-105 transition-all duration-300 max-h-[200px]"
+          className="rounded-lg group-hover:scale-105 transition-all duration-300   "
           priority
           placeholder="blur"
           blurDataURL={image}          

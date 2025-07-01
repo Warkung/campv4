@@ -39,7 +39,7 @@ function Hero({ landmarks }: { landmarks: LandmarkCardProps[] }) {
                 <img
                   src={landmark.image}
                   alt={landmark.name}
-                  className="w-full object-cover brightness-50 sm:h-96"
+                  className="w-full  object-cover brightness-50 h-36 sm:h-48 md:h-64 lg:h-96"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-5 left-3 p-4 text-white">
