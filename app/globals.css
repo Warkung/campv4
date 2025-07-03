@@ -123,6 +123,6 @@
 
 @layer components {
   .container {
-    @apply px-10 mx-auto;
+    @apply px-10 lg:px-24 mx-auto;
   }
 }

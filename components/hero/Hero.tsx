@@ -1,9 +1,9 @@
 "use client";
-import React, { Suspense, useRef, useState } from "react";
+import React, { Suspense } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LandmarkCardProps } from "@/utils/types";
-import { Skeleton } from "../ui/skeleton";
 
+import Image from "next/image";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -34,12 +34,15 @@ function Hero({ landmarks }: { landmarks: LandmarkCardProps[] }) {
           className="mySwiper"
         >
           {landmarks.map((landmark) => (
-            <SwiperSlide key={landmark.id} className=" max-w-5xl group">
-              <div className="relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 group-hover:scale-102">
-                <img
+            <SwiperSlide key={landmark.id} className="max-w-5xl group">
+              <div className="relative overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 group-hover:scale-102 h-36 sm:h-48 md:h-64 lg:h-96">
+                <Image
                   src={landmark.image}
                   alt={landmark.name}
-                  className="w-full  object-cover brightness-50 h-36 sm:h-48 md:h-64 lg:h-96"
+                  fill
+                  sizes="100vw"
+                  className="object-cover brightness-50"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-5 left-3 p-4 text-white">

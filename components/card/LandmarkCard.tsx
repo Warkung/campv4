@@ -6,45 +6,46 @@ import Link from "next/link";
 
 export default function LandmarkCard({
   landmark,
+  priority,
 }: {
   landmark: LandmarkCardProps;
+  priority?: boolean;
 }) {
-  const { image, name, id, province, lat, lng, category, description, price } =
-    landmark;
+  const { image, name, id, province, description, price } = landmark;
 
   return (
     <article className="group relative items-center">
-      <div className="relative h-[150px] ">
-      <Link href={`/landmark/${id}`}  >
-        <Image
-          src={image}
-          alt={name}
-          // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          sizes="300"
-          fill
-          style={{ objectFit: "cover" }}
-          className="rounded-lg group-hover:scale-105 transition-all duration-300   "
-          priority
-          placeholder="blur"
-          blurDataURL={image}          
-        />
+      <div className="relative h-[150px]">
+        <Link href={`/landmark/${id}`}>
+          <Image
+            src={image}
+            alt={name}
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+            fill
+            className="rounded-lg object-cover group-hover:scale-105 transition-all duration-300"
+            priority={priority}
+          />
         </Link>
       </div>
       <div className="mt-4 flex justify-between">
-        <h3 className="text-lg font-semibold">{name.substring(0, 30)}</h3>
+        <h3 className="text-lg font-semibold truncate" title={name}>
+          {name}
+        </h3>
         <LandmarkRating />
       </div>
-      <p className="text-sm text-muted-foreground">
-        {description.substring(0, 50)}
+      <p
+        className="text-sm text-muted-foreground truncate"
+        title={description}
+      >
+        {description}
       </p>
       <div className="flex justify-between items-center text-sm font-semibold">
         <span>THB {price}</span>
-        <p className=" ">{province}</p>
+        <p>{province}</p>
       </div>
       <div className=" absolute top-2 right-2">
         <FavoriteToggleButton landmarkId={id} />
       </div>
-      
     </article>
   );
 }
