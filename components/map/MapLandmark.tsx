@@ -61,11 +61,11 @@ export default function MapLandmark({
         scrollWheelZoom={true}
         className="h-[50vh] md:h-[60vh] xl:h-[70vh] w-full rounded-xl z-0 relative"
       >
-        {/* <Marker position={location || defaultLocation} icon={markerIcon}>
+        <Marker position={location || defaultLocation} icon={markerIcon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-        </Marker> */}
+        </Marker>
 
         <LocationMarker position={position} setPosition={setPosition} />
 

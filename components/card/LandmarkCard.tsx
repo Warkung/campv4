@@ -11,39 +11,40 @@ export default function LandmarkCard({
   landmark: LandmarkCardProps;
   priority?: boolean;
 }) {
-  const { image, name, id, province, description, price } = landmark;
+  const { image, name, id, province, price } = landmark;
 
   return (
-    <article className="group relative items-center">
-      <div className="relative h-[150px]">
-        <Link href={`/landmark/${id}`}>
+    <article className="group relative">
+      <Link href={`/landmark/${id}`}>
+        <div className="relative h-[200px] mb-2 overflow-hidden rounded-md">
           <Image
             src={image}
             alt={name}
-            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             fill
-            className="rounded-lg object-cover group-hover:scale-105 transition-all duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transform group-hover:scale-105 transition-transform duration-300"
             priority={priority}
           />
-        </Link>
-      </div>
-      <div className="mt-4 flex justify-between">
-        <h3 className="text-lg font-semibold truncate" title={name}>
-          {name}
-        </h3>
-        <LandmarkRating />
-      </div>
-      <p
-        className="text-sm text-muted-foreground truncate"
-        title={description}
-      >
-        {description}
-      </p>
-      <div className="flex justify-between items-center text-sm font-semibold">
-        <span>THB {price}</span>
-        <p>{province}</p>
-      </div>
-      <div className=" absolute top-2 right-2">
+        </div>
+        <div className="flex justify-between items-start">
+          <h3 className="text-lg font-semibold truncate" title={name}>
+            {name}
+          </h3>
+          <LandmarkRating />
+        </div>
+        <p className="text-sm text-muted-foreground">{province}</p>
+        <p className="text-sm mt-2">
+          <span className="font-bold">
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "THB",
+              minimumFractionDigits: 0,
+            }).format(price)}
+          </span>
+          <span className="text-muted-foreground"> / night</span>
+        </p>
+      </Link>
+      <div className="absolute top-3 right-3 z-10">
         <FavoriteToggleButton landmarkId={id} />
       </div>
     </article>

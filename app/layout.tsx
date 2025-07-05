@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
+import ConditionalNavbar from "@/components/navbar/ConditionalNavbar";
 import Provider from "./Provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Mali, } from "next/font/google";
@@ -39,8 +39,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
         >
           <Provider>
-            <Navbar />
-            <div className="container">{children}</div>
+            <ConditionalNavbar>{children}</ConditionalNavbar>
           </Provider>
         </body>
       </html>
